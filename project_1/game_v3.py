@@ -51,9 +51,14 @@ def game_core_v3(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    # Ваш код начинается здесь
-
-    # Ваш код заканчивается здесь
+    count = 0 
+    predict = np.random.randint(1, 101)
+    while number != predict:
+        count += 1
+        if number > predict:
+            predict += 1
+        elif number < predict:
+            predict -= 1
 
     return count
 
@@ -76,3 +81,11 @@ def score_game(random_predict) -> int:
     score = int(np.mean(count_ls))
     print(f"Ваш алгоритм угадывает число в среднем за: {score} попытки")
    
+print('Run benchmarking for random_predict: ', end='')
+score_game(random_predict)
+
+print('Run benchmarking for game_core_v2: ', end='')
+score_game(game_core_v2)
+
+print('Run benchmarking for game_core_v3: ', end='')
+score_game(game_core_v3)
