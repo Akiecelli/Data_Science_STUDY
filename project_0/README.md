@@ -35,19 +35,27 @@
 
 
 ### Этапы работы над проектом  
-....
+
+1 - Ознакомился с приведенным шаблоном в Google-Colab.
+2 - Создал новый файл game_v3.py
+3 - Включил туда уже готовые решения из baseline и дополнил своим.
+4 - Создал список окружения requirements.txt
+5 - Написал это README из шаблона.
 
 :arrow_up:[к оглавлению](https://github.com/Akiecelli/Data_Science_STUDY/blob/main/project_0/README.md#Оглавление)
 
 
 ### Результаты:  
-....
+
+Написана game_core_v3, способная угадывать используя менее 20 попыток.
+Результат содержится в ноутбуке game.ipynb и сам код в файле game_v3.py
 
 :arrow_up:[к оглавлению](https://github.com/Akiecelli/Data_Science_STUDY/blob/main/project_0/README.md#Оглавление)
 
 
 ### Выводы:  
-....
+
+Пока что чувствую себя безоружным с палкой в лесу. Надеюсь, это пройдет.
 
 :arrow_up:[к оглавлению](https://github.com/Akiecelli/Data_Science_STUDY/blob/main/project_0/README.md#Оглавление)
 
