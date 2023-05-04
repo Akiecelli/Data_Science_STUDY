@@ -63,8 +63,7 @@ def score_game(random_predict) -> int:
     print(f"Ваш алгоритм угадывает число в среднем за: {score} попытки")
     
 def game_core_v3(number: int = 1) -> int:
-    """По сути своей это - более конкретизированный вариант подхода game_core_v2 c более углубленной коррекцией.
-       В связи  с тем что это почти копия game_core_v2 - комментировать буду только видоизменения. 
+    """Переделанный вариант с использованием бинарного поиска.  
 
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
@@ -73,22 +72,26 @@ def game_core_v3(number: int = 1) -> int:
         int: Число попыток.
     """
     count = 0
-    predict = np.random.randint(1,101)
-    x = predict // predict # Приводим угадайку к 1, так как по моему мнению двигаться от меньшего к большему - последовательнее.
-    # Соответственно, если у нас цикл угадывания начинается с числа 1 в переменной х - то и двигаться нужно от него. 
-    while predict != number:
-        count += 1
-        if x == number: # Первым делом, условие выхода из цикла. 
+    predict = np.random.randint(1,101) #Стартовая точка угадывания.
+    x = list(range(1,101)) #решил создать последовательность в виде списка равную радиусу угадываемых чисел.
+    low = x[0] # Первый элемент - нижняя граница.
+    high = len(x) # Длина списка - верхняя. 
+    n = number #записал полученный number в n, для удобства.  
+    while low <= high: #Бесконечный цикл.       
+        count += 1 #При каждой итерации добавляет к числу попыток 1.       
+        if predict < n: #Если число меньше загаданного, то приводит нижнюю границу к числу, а затем вычисляет среднее значение новой последовательности.  
+            low = predict + 1
+            predict = (high + low) // 2                     
+        if predict > n: #Аналогично, если больше.           
+            high = predict - 1
+            predict = (high + low) // 2                       
+        if predict == n: #Условие выхода из цикла, если число соответствует загаданному.                               
             break
-        if number > x:
-            x += 10           
-        if number < x:
-            x -= 6            
-        if number > x:
-            x += 3           
-        if number < x:
-            x -= 2            
     return count
+            
+
+         
+        
 
 #Эффективность всех алгоритмов.
 print('Run benchmarking for random_predict: ', end='')
@@ -99,8 +102,6 @@ score_game(game_core_v2)
 
 print('Run benchmarking for game_core_v3: ', end='')
 score_game(game_core_v3)
-    
-
         
     
             
