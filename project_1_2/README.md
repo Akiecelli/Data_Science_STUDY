@@ -1,4 +1,4 @@
-# Проект 0. Угадай число
+# Проект 0. Аналитика HH.ru
 
 ## Оглавление  
 [1. Описание проекта](https://github.com/Akiecelli/Data_Science_STUDY/blob/main/project_0/README.md#Описание-проекта)  
